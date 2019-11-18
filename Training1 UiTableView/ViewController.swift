@@ -19,6 +19,17 @@ struct Member {
     }
 }
 
+
+struct SortTypeData{
+    public let id : Int
+    public let optType : String
+    
+    public init(id : Int, optType:String){
+        self.id = id
+        self.optType = optType
+    }
+}
+
 //Member Custom TableView Cell
 class MemberCell : UITableViewCell {
     @IBOutlet weak var idLabel: UILabel!
@@ -29,6 +40,11 @@ class MemberCell : UITableViewCell {
         nameLabel.text = member.name
     }
 }
+
+
+//Set Dummy Sort Type List
+let sortTypeList = [SortTypeData(id:1,optType: "Ascending ID"),
+                      SortTypeData(id:2,optType: "Ascending Name")]
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -42,15 +58,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                    Member(id:3,name:"Wakaba"),
                    Member(id:4,name:"Rin")]
     
+  
+    
     //Set Enum Sort Type List
-    enum SortType : String{
-        case ascendId = "Ascending Id"
-        case ascendName = "Ascending Name"
+    enum SortTypeEnum : Int {
+        case ascendId = 0
+        case ascendName = 1
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sortTypeLabel.text = SortType.ascendId.rawValue
+        self.sortTypeLabel.text = sortTypeList[SortTypeEnum.ascendId.rawValue].optType
     }
     
     @IBAction func sortAscOrderBtnClick(_ sender: UIButton) {
@@ -71,15 +89,15 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     // Order by SortType Function
-    func sortAscOrderBy(sortType : SortType){
+    func sortAscOrderBy(sortType : SortTypeEnum){
         switch sortType {
-        case SortType.ascendId:
+        case SortTypeEnum.ascendId:
             let tempSortIdList = members.sorted(by: {$0.id < $1.id})
             members = tempSortIdList
             memberTableView.reloadData()
             break
             
-        case SortType.ascendName:
+        case SortTypeEnum.ascendName:
             let tempSortNameList = members.sorted(by: {$0.name < $1.name})
             members = tempSortNameList
             memberTableView.reloadData()
@@ -100,17 +118,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func sortTypeAlert(){
         let sortTypeAlertController = UIAlertController(title: "Sort By", message:"", preferredStyle: .alert)
         
-        let sortAscIdBtn = UIAlertAction(title: SortType.ascendId.rawValue, style: .default) {
+        let sortAscIdBtn = UIAlertAction(title:  sortTypeList[SortTypeEnum.ascendId.rawValue].optType, style: .default) {
             (action:UIAlertAction) in
-            self.sortAscOrderBy(sortType: SortType.ascendId)
-            self.sortTypeLabel.text = SortType.ascendId.rawValue
+            self.sortAscOrderBy(sortType: SortTypeEnum.ascendId)
+            self.sortTypeLabel.text =  sortTypeList[SortTypeEnum.ascendId.rawValue].optType
             //print("You've Sortby : AscendingOrderById");
         }
         
-        let sortAscNameBtn = UIAlertAction(title: SortType.ascendName.rawValue, style: .default) {
+        let sortAscNameBtn = UIAlertAction(title: sortTypeList[SortTypeEnum.ascendName.rawValue].optType, style: .default) {
             (action:UIAlertAction) in
-            self.sortAscOrderBy(sortType: SortType.ascendName)
-            self.sortTypeLabel.text = SortType.ascendName.rawValue
+            self.sortAscOrderBy(sortType: SortTypeEnum.ascendName)
+            self.sortTypeLabel.text = sortTypeList[SortTypeEnum.ascendName.rawValue].optType
             //print("You've Sortby : AscendingOrderByName");
         }
         

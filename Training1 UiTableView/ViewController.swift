@@ -47,7 +47,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                    Member(id:4,name:"Rin")]
     
     //Set Sort Type List
-    let sortTypeList = ["AscendingOrderById","AscendingOrderByName"]
+    //let sortTypeList = ["AscendingOrderById","AscendingOrderByName"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +96,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         sortTypeAlert()
     }
     
-    //Select Sort Type Alert ModalPopover
+    //Select Sort Type Alert Modal Popover
     func sortTypeAlert(){
         let sortTypeAlertController = UIAlertController(title: "Sort By", message:"", preferredStyle: .alert)
         

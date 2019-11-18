@@ -71,15 +71,15 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     }
     
     // Order by SortType Function
-    func sortAscOrderBy(sortType : String?){
+    func sortAscOrderBy(sortType : SortType){
         switch sortType {
-        case SortType.ascendId.rawValue:
+        case SortType.ascendId:
             let tempSortIdList = members.sorted(by: {$0.id < $1.id})
             members = tempSortIdList
             memberTableView.reloadData()
             break
             
-        case SortType.ascendName.rawValue:
+        case SortType.ascendName:
             let tempSortNameList = members.sorted(by: {$0.name < $1.name})
             members = tempSortNameList
             memberTableView.reloadData()
@@ -102,14 +102,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         
         let sortAscIdBtn = UIAlertAction(title: SortType.ascendId.rawValue, style: .default) {
             (action:UIAlertAction) in
-            self.sortAscOrderBy(sortType: SortType.ascendId.rawValue)
+            self.sortAscOrderBy(sortType: SortType.ascendId)
             self.sortTypeLabel.text = SortType.ascendId.rawValue
             //print("You've Sortby : AscendingOrderById");
         }
         
         let sortAscNameBtn = UIAlertAction(title: SortType.ascendName.rawValue, style: .default) {
             (action:UIAlertAction) in
-            self.sortAscOrderBy(sortType: SortType.ascendName.rawValue)
+            self.sortAscOrderBy(sortType: SortType.ascendName)
             self.sortTypeLabel.text = SortType.ascendName.rawValue
             //print("You've Sortby : AscendingOrderByName");
         }

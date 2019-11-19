@@ -91,23 +91,17 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     // Order by SortType Function
     func sortAscOrderBy(sortType : SortTypeEnum){
         switch sortType {
-        case SortTypeEnum.ascendId:
-            let tempSortIdList = members.sorted(by: {$0.id < $1.id})
-            members = tempSortIdList
-            memberTableView.reloadData()
-            break
-            
-        case SortTypeEnum.ascendName:
-            let tempSortNameList = members.sorted(by: {$0.name < $1.name})
-            members = tempSortNameList
-            memberTableView.reloadData()
-            break
-            
-        default:
-            let tempSortIdList = members.sorted(by: {$0.id < $1.id})
-            members = tempSortIdList
-            memberTableView.reloadData()
-            break
+            case SortTypeEnum.ascendId:
+                let tempSortIdList = members.sorted(by: {$0.id < $1.id})
+                members = tempSortIdList
+                memberTableView.reloadData()
+                break
+                
+            case SortTypeEnum.ascendName:
+                let tempSortNameList = members.sorted(by: {$0.name < $1.name})
+                members = tempSortNameList
+                memberTableView.reloadData()
+                break
         }
     }
     

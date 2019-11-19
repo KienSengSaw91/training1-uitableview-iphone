@@ -45,8 +45,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                    Member(id:3,name:"Wakaba"),
                    Member(id:4,name:"Rin")]
     
-    let ascendID = "Ascending ID"
-    let ascendName = "Ascending Name"
+    let ascendID = RValue.ascendIdVal
+    let ascendName = RValue.ascendNameVal
   
     
     //Set Enum Sort Type List

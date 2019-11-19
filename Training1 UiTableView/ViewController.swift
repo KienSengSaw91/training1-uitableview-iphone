@@ -19,17 +19,6 @@ struct Member {
     }
 }
 
-
-struct SortTypeData{
-    public let id : Int
-    public let optType : String
-    
-    public init(id : Int, optType:String){
-        self.id = id
-        self.optType = optType
-    }
-}
-
 //Member Custom TableView Cell
 class MemberCell : UITableViewCell {
     @IBOutlet weak var idLabel: UILabel!
@@ -42,9 +31,7 @@ class MemberCell : UITableViewCell {
 }
 
 
-//Set Dummy Sort Type List
-let sortTypeList = [SortTypeData(id:1,optType: "Ascending ID"),
-                      SortTypeData(id:2,optType: "Ascending Name")]
+
 
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
@@ -58,6 +45,8 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
                    Member(id:3,name:"Wakaba"),
                    Member(id:4,name:"Rin")]
     
+    let ascendID = "Ascending ID"
+    let ascendName = "Ascending Name"
   
     
     //Set Enum Sort Type List
@@ -68,7 +57,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.sortTypeLabel.text = sortTypeList[SortTypeEnum.ascendId.rawValue].optType
+        self.sortTypeLabel.text = ascendID
     }
     
     @IBAction func sortAscOrderBtnClick(_ sender: UIButton) {
@@ -112,18 +101,16 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     func sortTypeAlert(){
         let sortTypeAlertController = UIAlertController(title: "Sort By", message:"", preferredStyle: .alert)
         
-        let sortAscIdBtn = UIAlertAction(title:  sortTypeList[SortTypeEnum.ascendId.rawValue].optType, style: .default) {
+        let sortAscIdBtn = UIAlertAction(title: ascendID, style: .default) {
             (action:UIAlertAction) in
             self.sortAscOrderBy(sortType: SortTypeEnum.ascendId)
-            self.sortTypeLabel.text =  sortTypeList[SortTypeEnum.ascendId.rawValue].optType
-            //print("You've Sortby : AscendingOrderById");
+            self.sortTypeLabel.text =  self.ascendID
         }
         
-        let sortAscNameBtn = UIAlertAction(title: sortTypeList[SortTypeEnum.ascendName.rawValue].optType, style: .default) {
+        let sortAscNameBtn = UIAlertAction(title: ascendName, style: .default) {
             (action:UIAlertAction) in
             self.sortAscOrderBy(sortType: SortTypeEnum.ascendName)
-            self.sortTypeLabel.text = sortTypeList[SortTypeEnum.ascendName.rawValue].optType
-            //print("You've Sortby : AscendingOrderByName");
+            self.sortTypeLabel.text = self.ascendName
         }
         
         sortTypeAlertController.addAction(sortAscIdBtn)

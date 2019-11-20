@@ -15,7 +15,6 @@
 		8AB9D0C8237E8EE90032CEFE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AB9D0C6237E8EE90032CEFE /* LaunchScreen.storyboard */; };
 		8AB9D0D3237E8EE90032CEFE /* Training1_UiTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB9D0D2237E8EE90032CEFE /* Training1_UiTableViewTests.swift */; };
 		8AB9D0DE237E8EE90032CEFE /* Training1_UiTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB9D0DD237E8EE90032CEFE /* Training1_UiTableViewUITests.swift */; };
-		8AE1244E23839BE900AF1D69 /* RValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE1244D23839BE900AF1D69 /* RValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +49,6 @@
 		8AB9D0D9237E8EE90032CEFE /* Training1 UiTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Training1 UiTableViewUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AB9D0DD237E8EE90032CEFE /* Training1_UiTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Training1_UiTableViewUITests.swift; sourceTree = "<group>"; };
 		8AB9D0DF237E8EE90032CEFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8AE1244D23839BE900AF1D69 /* RValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +106,6 @@
 				8AB9D0C4237E8EE90032CEFE /* Assets.xcassets */,
 				8AB9D0C6237E8EE90032CEFE /* LaunchScreen.storyboard */,
 				8AB9D0C9237E8EE90032CEFE /* Info.plist */,
-				8AE1244D23839BE900AF1D69 /* RValue.swift */,
 			);
 			path = "Training1 UiTableView";
 			sourceTree = "<group>";
@@ -264,7 +261,6 @@
 			files = (
 				8AB9D0C0237E8EE70032CEFE /* ViewController.swift in Sources */,
 				8AB9D0BC237E8EE70032CEFE /* AppDelegate.swift in Sources */,
-				8AE1244E23839BE900AF1D69 /* RValue.swift in Sources */,
 				8AB9D0BE237E8EE70032CEFE /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -47,7 +47,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     
     let ascendID = "Ascending ID"
     let ascendName = "Ascending Name"
-  
+    
     
     //Set Enum Sort Type List
     enum SortTypeEnum : Int {
@@ -80,23 +80,19 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
     // Order by SortType Function
     func sortAscOrderBy(sortType : SortTypeEnum){
         switch sortType {
-            case SortTypeEnum.ascendId:
-                let tempSortIdList = members.sorted(by: {$0.id < $1.id})
-                members = tempSortIdList
-                memberTableView.reloadData()
-                break
-                
-            case SortTypeEnum.ascendName:
-                let tempSortNameList = members.sorted(by: {$0.name < $1.name})
-                members = tempSortNameList
-                memberTableView.reloadData()
-                break
+        case SortTypeEnum.ascendId:
+            members.sort(by: {$0.id < $1.id})
+            memberTableView.reloadData()
+            break
+            
+        case SortTypeEnum.ascendName:
+            members.sort(by: {$0.name < $1.name})
+            memberTableView.reloadData()
+            break
         }
     }
     
-    
-   
-    
+
     //Select Sort Type Alert Modal Popover
     func sortTypeAlert(){
         let sortTypeAlertController = UIAlertController(title: "Sort By", message:"", preferredStyle: .alert)

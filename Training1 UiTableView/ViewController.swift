@@ -31,8 +31,6 @@ class MemberCell : UITableViewCell {
 }
 
 
-
-
 class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
     
     //UI Declaration
@@ -92,7 +90,7 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
         }
     }
     
-
+    
     //Select Sort Type Alert Modal Popover
     func sortTypeAlert(){
         let sortTypeAlertController = UIAlertController(title: "Sort By", message:"", preferredStyle: .alert)
